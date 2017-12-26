@@ -1,0 +1,139 @@
+#function to optimize in the decision_boundary method
+def lr_bdry_module(recall_acc, roc_auc):
+    return 0.9*recall_acc+0.1*roc_auc
+def svm_rbf_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def svm_poly_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def rf_bdry_module(recall_acc, roc_auc):
+    return 0.5*recall_acc+0.5*roc_auc
+
+Hyperparameter values:
+ratio:  1  and mode:  2
+Result of our model which a voting models among knn, svm_rbf, svm_poly, lr and rf:
+mean_recall is  0.947891156463  and std is  0.0205261893236
+mean_auc is  0.910131710902  and std is  0.0171707589543
+
+Control experiments of logistic regression models with different threshold
+i.e., fraud is predicted if the probability value exceeds the threshold
+Threshold 0.2
+mean_recall is  0.999591836735  and std is  0.00161555674654
+mean_auc is  0.500567778053  and std is  0.000804848100367
+
+Threshold 0.25
+mean_recall is  0.99843537415  and std is  0.00286280617857
+mean_auc is  0.501471479839  and std is  0.00171327575872
+
+Threshold 0.3
+mean_recall is  0.997959183673  and std is  0.00311739843194
+mean_auc is  0.509145371376  and std is  0.00576401475956
+
+Threshold 0.35
+mean_recall is  0.99462585034  and std is  0.0074703046412
+mean_auc is  0.546020688905  and std is  0.012313734029
+
+Threshold 0.4
+mean_recall is  0.981428571429  and std is  0.0139697815521
+mean_auc is  0.684088614506  and std is  0.0157229943232
+
+Threshold 0.45
+mean_recall is  0.960476190476  and std is  0.0185227739723
+mean_auc is  0.844119904041  and std is  0.0145245744079
+
+Threshold 0.5
+mean_recall is  0.934421768707  and std is  0.0209567978382
+mean_auc is  0.910008326143  and std is  0.0114560004567
+
+
+################################################################################
+#function to optimize in the decision_boundary method
+def lr_bdry_module(recall_acc, roc_auc):
+    return 0.8*recall_acc+0.2*roc_auc
+def svm_rbf_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def svm_poly_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def rf_bdry_module(recall_acc, roc_auc):
+    return 0.5*recall_acc+0.5*roc_auc
+Hyperparameter values:
+ratio:  1  and mode:  2
+Result of our model which a voting models among knn, svm_rbf, svm_poly, lr and rf:
+mean_recall is  0.943265306122  and std is  0.0183854785789
+mean_auc is  0.926048731566  and std is  0.0081608532879
+
+Control experiments of logistic regression models with different threshold
+i.e., fraud is predicted if the probability value exceeds the threshold
+Threshold 0.2
+mean_recall is  0.999795918367  and std is  0.00116045728634
+mean_auc is  0.500610904995  and std is  0.000645007496597
+
+Threshold 0.25
+mean_recall is  0.998775510204  and std is  0.00261352009691
+mean_auc is  0.501432564819  and std is  0.00146820180412
+
+Threshold 0.3
+mean_recall is  0.998231292517  and std is  0.0029839064217
+mean_auc is  0.508399241822  and std is  0.00492888280388
+
+Threshold 0.35
+mean_recall is  0.994353741497  and std is  0.00645757055726
+mean_auc is  0.542823223364  and std is  0.0108683902111
+
+Threshold 0.4
+mean_recall is  0.980340136054  and std is  0.0123163072741
+mean_auc is  0.680041102332  and std is  0.0155652881081
+
+Threshold 0.45
+mean_recall is  0.961428571429  and std is  0.0178188445803
+mean_auc is  0.84335702729  and std is  0.0135888486668
+
+Threshold 0.5
+mean_recall is  0.934761904762  and std is  0.0182560244472
+mean_auc is  0.910248035646  and std is  0.00962940011694
+
+################################################################################
+#function to optimize in the decision_boundary method
+def lr_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def svm_rbf_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def svm_poly_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+def rf_bdry_module(recall_acc, roc_auc):
+    return recall_acc*roc_auc
+
+Hyperparameter values:
+ratio:  1  and mode:  2
+Result of our model which a voting models among knn, svm_rbf, svm_poly, lr and rf:
+mean_recall is  0.943197278912  and std is  0.0205971970846
+mean_auc is  0.927451395804  and std is  0.00896254909226
+
+Control experiments of logistic regression models with different threshold
+i.e., fraud is predicted if the probability value exceeds the threshold
+Threshold 0.2
+mean_recall is  0.999455782313  and std is  0.0018455319682
+mean_auc is  0.500454847332  and std is  0.00093355705778
+
+Threshold 0.25
+mean_recall is  0.998231292517  and std is  0.0029839064217
+mean_auc is  0.501329459657  and std is  0.00169335656399
+
+Threshold 0.3
+mean_recall is  0.997619047619  and std is  0.00351839470503
+mean_auc is  0.50915497601  and std is  0.00528237036895
+
+Threshold 0.35
+mean_recall is  0.993605442177  and std is  0.00792276101308
+mean_auc is  0.546226244431  and std is  0.0117440419816
+
+Threshold 0.4
+mean_recall is  0.978639455782  and std is  0.0151509901087
+mean_auc is  0.681670772513  and std is  0.017201466305
+
+Threshold 0.45
+mean_recall is  0.958095238095  and std is  0.0225973247436
+mean_auc is  0.841917281626  and std is  0.013081798159
+
+Threshold 0.5
+mean_recall is  0.931768707483  and std is  0.0228363810793
+mean_auc is  0.907600125074  and std is  0.0116093549366
