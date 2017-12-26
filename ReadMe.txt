@@ -9,7 +9,7 @@ The task in this project is to classify the fraud activity and the normal activi
 My model is inspired from the blog "In depth skewed data classif. (93% recall acc now)" written by joparga3In on https://www.kaggle.com/joparga3/in-depth-skewed-data-classif-93-recall-acc-now . In the blog, the train set is downsampled such that number of normal activities is the same as the number of fraud activities. This downsample process actually helps a lot. Then, by using cross-validation technique, the penalty parameter of logistical regression is chosen such that the recall score is optimized. Finely tuning the penalty parameter in this way is another boost to obtain high recall score. The well-trained logistical regression can classify the fraud and normal activity very well. I ran his algorithm for 100 times and get this result in different decision boundary thresholds. Results are follows:
 
 Control experiments of logistic regression models with different threshold
-i.e., fraud is predicted if the probability value exceeds the threshold
+i.e., fraud is predicted if the predicted probability value by the logistic regression model exceeds the threshold
 Threshold 0.2
 mean of recall score is  1.00  and standard deviation of recall score is  0.001
 mean of auc is  0.50 and standard deviation of auc is  0.001
