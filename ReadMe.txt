@@ -51,8 +51,8 @@ I have added three more ideas on top of joparga3In's model. (1) beside logistic 
 	v.	The min_samples_split in the random forest model is determined
 (4) The cross-validation are re-shuffled. 
 (5) Using cross-validaton, decision boundary thresholds in the following learning models are determined by optimizing some objective function of auc and recall score in the model.
-	i. 	The decision boundary threshold of the support vector machine using Gaussian radix basis function kernel is determined by optimizing the square of the geometric 		mean function auc*(recall score).
-	ii.	The decision boundary threshold of the support vector machine using polynomial kernel is determined by optimizing the square of the geometric mean function 			auc*(recall score).
+	i. 	The decision boundary threshold of the support vector machine using Gaussian radix basis function kernel is determined by optimizing the square of the geometric mean function auc*(recall score).
+	ii.	The decision boundary threshold of the support vector machine using polynomial kernel is determined by optimizing the square of the geometric mean function auc*(recall score).
 	iii.	The decision boundary threshold of the logistic regression model is determined by optimizing the weighted arithmetic mean function 0.9*(recall score) + 0.1*auc.
 	iv.	The decision boundary threshold of the random forest is determined by optimizing the arithmetic mean function 0.5*(recall score) + 0.5*auc.
 (6) All five models-- k-nearest nbd, support vector machine using Gaussian radix function kernel, support vector machine using polynomial kernel logistic regression and random forest-- are trained with finely tuned parameters.
