@@ -1,7 +1,7 @@
 Before running the script, please download the and unzip the file creditcard.csv on https://www.kaggle.com/dalpozz/creditcardfraud.
 
 Python version to run my script: 3.6.4
-Library required: pandasm matplotlib, sklearn and scipy
+Library required: pandas matplotlib, sklearn and scipy
 Implement: my_model.py
 
 The task in this project is to classify the fraud activity and the normal activity as good as possible. The main challenge is the dataset is highly imbalanced. There are 492 frauds out of 284,807 transactions. It is difficult to lower the false negative rate (misclassify fraud activity as normal) while the false positive rate (misclassify normal activity as fraud) is still kept reasonably high. In the analysis of prediction on highly imbalanced dataset, recall score and auc are some good indicators. The indicator recall score is defined as true positive/(true positive + false negative). The indicator auc under ROC curve is the area under the ROC curve [Some people use area of another curve as auc]. Usually, high recall score and high auc under ROC can conclude as an accurate classification. My goal in this project is to build up a model with high recall score and acc.
