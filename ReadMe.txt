@@ -41,23 +41,23 @@ mean of auc is 0.91  and standard deviation of auc is 0.010
 From the above output, a similar result as shown on the author joparga3In's blog can be regenerated.
 
 I have added three more ideas on top of joparga3In's model. (1) beside logistic regression model, four more models-- k-nearest nbd, support vector machine using Gaussian radix function kernel, support vector machine using polynomial kernel and random forest-- are used for classification. (2) Using cross-validation, decision boundary threshold in each model except k-nearest nbd are determined by optimizing an objective function of recall score and auc in each model. Each model has it own objective function of recall score and auc. (3) The final classification of activity is based on the vote among all these five models-- k-nearest nbd, support vector machine using Gaussian radix function kernel, support vector machine using polynomial kernel logistic regression and random forest. The pseudo code of our model is as follows:
-(1) Data are splitted to train and test sets: in each set.
-(2) Training set is downsampled so that in the training set the number of normal activities = ratio*the number of normal activities [ratio = 1 in our case].
+(1) Data are splitted to train and test sets.
+(2) Training set is downsampled so that in the training set the number of normal activities = ratio*the number of fraud activities [ratio = 1 in our case].
 (3) Using cross-validaton, some hyperparameters in the following learning models are determined by optimizing the recall score in the model.
 	i.	The number of k in the k-nearest nbd. model is determined.
 	ii.	The penalty parameter in the support vector machine using Gaussian radix basis function kernel is determined.
-	iii.	The penalty parameter and the degree of the polynomial kernel in the support vector machine are determined.
+	iii.	The penalty parameter and the degree of the polynomial kernel in the support vector machine using polynomial kernel are determined.
 	iv.	The penalty parameter in the logistic regression model is determined.
 	v.	The min_samples_split in the random forest model is determined
 (4) The cross-validation are re-shuffled. 
 (5) Using cross-validaton, decision boundary thresholds in the following learning models are determined by optimizing some objective function of auc and recall score in the model.
-	i. 	The decision boundary threshold of the support vector machine using Gaussian radix basis function kernel is determined by optimizing the geometric mean function 		auc*(recall score).
-	ii.	The decision boundary threshold of the support vector machine using polynomial kernel is determined by optimizing the geometric mean function auc*(recall score).
+	i. 	The decision boundary threshold of the support vector machine using Gaussian radix basis function kernel is determined by optimizing the square of the geometric 		mean function auc*(recall score).
+	ii.	The decision boundary threshold of the support vector machine using polynomial kernel is determined by optimizing the square of the geometric mean function 			auc*(recall score).
 	iii.	The decision boundary threshold of the logistic regression model is determined by optimizing the weighted arithmetic mean function 0.9*(recall score) + 0.1*auc.
 	iv.	The decision boundary threshold of the random forest is determined by optimizing the arithmetic mean function 0.5*(recall score) + 0.5*auc.
 (6) All five models-- k-nearest nbd, support vector machine using Gaussian radix function kernel, support vector machine using polynomial kernel logistic regression and random forest-- are trained with finely tuned parameters.
 (7) Class of activities in a test set are predicted by these five models individually according to their own decision boundary thresholds. [Note that the decision boundary threshold of k-nearest nbd. is a standard value 0.5].
-(8) In each test example, fraud activity is outputted by our model if the number of fraud prediction out of these five models is greater than or equal to mode. [mode = 2 in our case].
+(8) In each test example, fraud activity is outputted by our model if the number of fraud predictions out of these five models is greater than or equal to mode. [mode = 2 in our case].
 
 After implementing the pseudo code 100 times, the result is follows:
 ratio:  1  and mode:  2
@@ -69,9 +69,11 @@ Conclusion:
 Our model can boost up the recall score a little bit (0.02 up compared with logistical regression with standard 0.5 decision boundary threshold and just 0.01 down compared with logistical regression with decision boundary threshold being 0.45 ) while the auc value can still maintained to be high (same as logistical regression with standard 0.5 decision boundary threshold and 0.07 up compared with logistical regression with decision boundary threshold being 0.45).
 
 Potential Improvement:
-1. Use different value of mode
-2. Use some other models in the voting system.
-3. Use different objective function of recall score and auc to determine a decision boundary threshold. [It is a very sophisticated subject to find out a very good objective function to determine the decision boundary threshold to fulfill our goal.
+1. Different value of mode is used
+2. Some other models in the voting system are used.
+3. Different objective function of recall score and auc to determine a decision boundary threshold is used. [It is a very sophisticated subject to find out a very good objective function to determine the decision boundary threshold to fulfill our goal.
+4. Some learning models are used to learn the predicted probabilities outputted from all models in the voting system to give the final prediction of class of activities.
+5. A deep neural network model is used for classification.
 
 Reference:
 1. Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015
