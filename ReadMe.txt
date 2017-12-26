@@ -76,6 +76,7 @@ Potential Improvement:
 Reference:
 1. Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015
 2. The blog "In depth skewed data classif. (93% recall acc now)", joparga3In, https://www.kaggle.com/joparga3/in-depth-skewed-data-classif-93-recall-acc-now
+3. A voting model to keep recall score and auc high, AJ Tong, https://www.kaggle.com/punwai/a-voting-model-to-keep-recall-score-and-auc-high/ 
 
 
 
